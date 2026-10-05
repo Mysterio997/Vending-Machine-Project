@@ -4,11 +4,6 @@ CRISPS=0.60
 CHOCOLATEBAR=0.80
 BOTTLEDWATER=0.90
 
-CEREAL_BAR=0
-CRISPS_1=0
-CHOCOLATE_BAR=0
-BOTTLED_WATER=0
-
 CHOICE = "No Choice"
 print()
 print("Welcome To The Vending Machine!")
@@ -49,6 +44,7 @@ else:
 # Defining Payment And Extra Payment If Not Enough Inserted
 PAYMENT = float(input("How Much Money Did You Insert?"))
 PAYMENT2 = 0
+PAYMENT = float(f"{PAYMENT:.2f}")
 
 # Do Not Have Enough For Item
 if PAYMENT < 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
