@@ -64,9 +64,6 @@ elif PAYMENT < 0.90 and choice.lower() == "bottled water" or choice.lower()=="bo
     print("You do not have enough money for this item, please insert extra money.")
     PAYMENT2 = float(input("How Much extra Money Did You Insert?"))
 
-
-
-
 # If still do not have enough after extra inserted money
 if PAYMENT + PAYMENT2 < 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
     print("You do not have enough money for this item.")
@@ -91,8 +88,6 @@ elif PAYMENT + PAYMENT2 >= 0.90 and choice.lower() == "bottled water" or choice.
     print("Thank you for your purchase.")
     print(f"Dispensed {CHOICE}")
 
-
-
 TOTAL = 0
 
 # Change
@@ -109,4 +104,5 @@ elif PAYMENT + PAYMENT2 > 0.90 and choice.lower() == "bottled water" or choice.l
     TOTAL = PAYMENT + PAYMENT2 - 0.90
     print(f"Please take {TOTAL:.2f} change")
 else:
-    print("No change.")
+    TOTAL = PAYMENT + PAYMENT2
+    print(f"Please take {TOTAL:.2f} change")
