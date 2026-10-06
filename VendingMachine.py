@@ -20,6 +20,19 @@ print("Accepted payment options: 10p, 20p, 50p, £1")
 print("==============================")
 print()
 
+# Redefine To Match Brief - Self Notes
+# Add check to ensure coins inserted follow accepted payment options
+# Add loop to ensure enough money is inserted instead of extra payment option + some form of cancel option
+# match.choice ? Possibly - experiment not needed
+# Make code smaller ? Possibly
+
+# TO BE ADDED
+
+
+
+
+
+
 # Inital Definition Of Item Choice And Price
 choice = input("What item are you choosing?")
 if choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
