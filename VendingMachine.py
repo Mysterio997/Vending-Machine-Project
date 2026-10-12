@@ -4,11 +4,11 @@ CRISPS=60
 CHOCOLATEBAR=80
 BOTTLEDWATER=90
 # Other Variables
-PRICETOPAY=0
-CHANGE=0
-POUNDCHANGE=0
-PAYMENTACCEPTED = ("false") 
-ITEMDISPENSED = ("false") 
+PRICETOPAY=0 # Total Amount Needed
+CHANGE=0 # Change In Pence
+POUNDCHANGE=0 # Change In Pounds
+PAYMENTACCEPTED = ("false")  # Payment Accepted?
+ITEMDISPENSED = ("false")  # Item Dispensed?
 
 print()
 print("Welcome To The Vending Machine!")
@@ -60,12 +60,12 @@ if PAYMENTACCEPTED == "true" and PAYMENT < PRICETOPAY:
         AMOUNTNEEDED = PRICETOPAY - PAYMENT
         print(f"Please insert more money, total amount needed is {AMOUNTNEEDED}p")
         PAYMENT2 = int(input("How much more money do you insert?"))
+# Payment validation logic does not apply to PAYMENT2
         PAYMENT = PAYMENT + PAYMENT2
-elif PAYMENTACCEPTED == "true" and PAYMENT >= PRICETOPAY:
+
+if PAYMENTACCEPTED == "true" and PAYMENT >= PRICETOPAY:
     print(f"Dispensed {CHOICE}")
-
-
-if PAYMENT >= PRICETOPAY:
+elif PAYMENT >= PRICETOPAY:
     CHANGE = PAYMENT - PRICETOPAY
 elif CHANGE == "0":
     print("No change required")
