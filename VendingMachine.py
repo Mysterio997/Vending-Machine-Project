@@ -1,117 +1,76 @@
-PRICE=0
-CEREALBAR=0.50
-CRISPS=0.60
-CHOCOLATEBAR=0.80
-BOTTLEDWATER=0.90
+# Initial Price Variables
+CEREALBAR=50
+CRISPS=60
+CHOCOLATEBAR=80
+BOTTLEDWATER=90
+# Other Variables
+PRICETOPAY=0
+CHANGE=0
+POUNDCHANGE=0
+PAYMENTACCEPTED = ("false") 
+ITEMDISPENSED = ("false") 
 
-CHOICE = "No Choice"
 print()
 print("Welcome To The Vending Machine!")
-print()
 print("==============================")
 print("Here are your options below:")
 print()
-print(f"Cereal bar = {CEREALBAR:.2f}" )
-print(f"Crisps = {CRISPS:.2f}")
-print(f"Chocolate bar = {CHOCOLATEBAR:.2f}")
-print(f"Bottled water = {BOTTLEDWATER:.2f}")
+print(f"Cereal bar = {CEREALBAR}p" )
+print(f"Crisps = {CRISPS}p")
+print(f"Chocolate bar = {CHOCOLATEBAR}p")
+print(f"Bottled water = {BOTTLEDWATER}p")
 print()
-print("Accepted payment options: 10p, 20p, 50p, £1")
+print("Accepted payment options: 10p, 20p, 50p, £1. Please pay in pence.")
 print("==============================")
 print()
 
-# Redefine To Match Brief - Self Notes
-# Add check to ensure coins inserted follow accepted payment options
-# Add loop to ensure enough money is inserted instead of extra payment option + some form of cancel option
-# match.choice ? Possibly - experiment not needed
-# Make code smaller ? Possibly
+Selection = input("What Item Will You Be Selecting?")
+Selection.strip()
 
-# TO BE ADDED
-
-
-
-
-
-
-# Inital Definition Of Item Choice And Price
-choice = input("What item are you choosing?")
-if choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
-    PRICE = CEREALBAR
+if Selection.lower() == "cereal bar" or Selection.lower()=="cerealbar":  
+    PRICETOPAY = CEREALBAR
     CHOICE = "Cereal Bar"
-    print(f"Please pay {CEREALBAR:.2f} for a Cereal Bar!")
-elif choice.lower() == "crisps":  
-    PRICE = CRISPS
+    print(f"Please pay {CEREALBAR}p for a Cereal Bar!")
+elif Selection.lower() == "crisps":  
+    PRICETOPAY = CRISPS
     CHOICE = "Crisps"
-    print(f"Please pay {CRISPS:.2f} for Crisps!")
-elif choice.lower() == "chocolate bar" or choice.lower()=="chocolatebar":  
-    PRICE = CHOCOLATEBAR
+    print(f"Please pay {CRISPS}p for Crisps!")
+elif Selection.lower() == "chocolate bar" or Selection.lower()=="chocolatebar":  
+    PRICETOPAY = CHOCOLATEBAR
     CHOICE = "Chocolate Bar"
-    print(f"Please pay {CHOCOLATEBAR:.2f} for a Chocclate Bar!")
-elif choice.lower() == "bottled water" or choice.lower()=="bottledwater":  
-    PRICE = BOTTLEDWATER
+    print(f"Please pay {CHOCOLATEBAR}p for a Chocclate Bar!")
+elif Selection.lower() == "bottled water" or Selection.lower()=="bottledwater":  
+    PRICETOPAY = BOTTLEDWATER
     CHOICE = "Bottled Water"
-    print(f"Please pay {BOTTLEDWATER:.2f}")
+    print(f"Please pay {BOTTLEDWATER}p")
 else:   
     print("You have not selected a valid option, please try again")
 
-# Defining Payment And Extra Payment If Not Enough Inserted
-PAYMENT = float(input("How Much Money Did You Insert?"))
-PAYMENT2 = 0
-PAYMENT = float(f"{PAYMENT:.2f}")
+PAYMENT = int(input("How Much Money Did You Insert?"))
 
-# Do Not Have Enough For Item
-if PAYMENT < 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
-    print("You do not have enough money for this item, please insert extra money.")
-    PAYMENT2 = float(input("How Much extra Money Did You Insert?"))
-elif PAYMENT < 0.60 and choice.lower() == "crisps":    
-    print("You do not have enough money for this item, please insert extra money.")
-    PAYMENT2 = float(input("How Much extra Money Did You Insert?"))
-elif PAYMENT < 0.80 and choice.lower() == "chocolate bar" or choice.lower()=="chocolatebar":   
-    print("You do not have enough money for this item, please insert extra money.")
-    PAYMENT2 = float(input("How Much extra Money Did You Insert?"))
-elif PAYMENT < 0.90 and choice.lower() == "bottled water" or choice.lower()=="bottledwater":  
-    print("You do not have enough money for this item, please insert extra money.")
-    PAYMENT2 = float(input("How Much extra Money Did You Insert?"))
+if (PAYMENT == 10) or (PAYMENT == 20) or (PAYMENT == 50) or (PAYMENT == 100):
+    PAYMENT = PAYMENT
+    PAYMENTACCEPTED = ("true") 
+else: 
+    print("Inserted payment is not not accepted. Accepted payment options: 10p, 20p, 50p, £1. Please pay in pence.") 
+    PAYMENTACCEPTED = ("false") 
 
-# If still do not have enough after extra inserted money
-if PAYMENT + PAYMENT2 < 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
-    print("You do not have enough money for this item.")
-elif PAYMENT + PAYMENT2  < 0.60 and choice.lower() == "crisps":    
-    print("You do not have enough money for this item.")
-elif PAYMENT + PAYMENT2  < 0.80 and choice.lower() == "chocolate bar" or choice.lower()=="chocolatebar":   
-    print("You do not have enough money for this item.")
-elif PAYMENT + PAYMENT2 < 0.90 and choice.lower() == "bottled water" or choice.lower()=="bottledwater":  
-    print("You do not have enough money for this item.")
-
-# If they have enough
-if PAYMENT + PAYMENT2 >= 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
-    print("Thank you for your purchase.")
-    print(f"Dispensed {CHOICE}")
-elif PAYMENT + PAYMENT2 >= 0.60 and choice.lower() == "crisps":    
-    print("Thank you for your purchase.")
-    print(f"Dispensed {CHOICE}")
-elif PAYMENT + PAYMENT2 >= 0.80 and choice.lower() == "chocolate bar" or choice.lower()=="chocolatebar":   
-    print("Thank you for your purchase.")
-    print(f"Dispensed {CHOICE}")
-elif PAYMENT + PAYMENT2 >= 0.90 and choice.lower() == "bottled water" or choice.lower()=="bottledwater":  
-    print("Thank you for your purchase.")
+if PAYMENTACCEPTED == "true" and PAYMENT < PRICETOPAY:
+    while PAYMENT < PRICETOPAY:
+        AMOUNTNEEDED = PRICETOPAY - PAYMENT
+        print(f"Please insert more money, total amount needed is {AMOUNTNEEDED}p")
+        PAYMENT2 = int(input("How much more money do you insert?"))
+        PAYMENT = PAYMENT + PAYMENT2
+elif PAYMENTACCEPTED == "true" and PAYMENT >= PRICETOPAY:
     print(f"Dispensed {CHOICE}")
 
-TOTAL = 0
 
-# Change
-if PAYMENT + PAYMENT2 > 0.50 and choice.lower() == "cereal bar" or choice.lower()=="cerealbar":  
-    TOTAL = PAYMENT + PAYMENT2 - 0.50
-    print(f"Please take {TOTAL:.2f} change")
-elif PAYMENT + PAYMENT2 > 0.60 and choice.lower() == "crisps":    
-    TOTAL = PAYMENT + PAYMENT2 - 0.60 
-    print(f"Please take {TOTAL:.2f} change")
-elif PAYMENT + PAYMENT2 > 0.80 and choice.lower() == "chocolate bar" or choice.lower()=="chocolatebar":   
-    TOTAL = PAYMENT + PAYMENT2 - 0.80
-    print(f"Please take {TOTAL:.2f} change")
-elif PAYMENT + PAYMENT2 > 0.90 and choice.lower() == "bottled water" or choice.lower()=="bottledwater":  
-    TOTAL = PAYMENT + PAYMENT2 - 0.90
-    print(f"Please take {TOTAL:.2f} change")
-else:
-    TOTAL = PAYMENT + PAYMENT2
-    print(f"Please take {TOTAL:.2f} change")
+if PAYMENT >= PRICETOPAY:
+    CHANGE = PAYMENT - PRICETOPAY
+elif CHANGE == "0":
+    print("No change required")
+elif CHANGE > 99:
+    CHANGE % 100 == POUNDCHANGE
+    print(f"Change dispensed is {POUNDCHANGE} pounds")
+elif CHANGE > 0:
+    print(f"Change dispensed is {CHANGE}p")
