@@ -45,6 +45,7 @@ elif Selection.lower() == "bottled water" or Selection.lower()=="bottledwater":
     print(f"Please pay {BOTTLEDWATER}p")
 else:   
     print("You have not selected a valid option, please try again")
+      quit()
 
 PAYMENT = int(input("How Much Money Did You Insert?"))
 
