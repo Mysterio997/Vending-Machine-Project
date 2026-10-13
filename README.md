@@ -6,11 +6,20 @@ Python
 
 Visual Studio Code Extensions:
 
-Error Lens : https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens 
-Ident Rainbow : https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
-Pylance: https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
-Python : https://marketplace.visualstudio.com/items?itemName=ms-python.python
+Error Lens : 
+https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens 
+
+Ident Rainbow : 
+https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
+
+Pylance: 
+https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
+
+Python : 
+https://marketplace.visualstudio.com/items?itemName=ms-python.python
 Python Debugger : https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy
-Python Environments : https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs
+
+Python Environments : 
+https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs
 
 Not required to run code but improves quality of life. (Must have Python)
