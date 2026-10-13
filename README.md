@@ -17,7 +17,9 @@ https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
 
 Python : 
 https://marketplace.visualstudio.com/items?itemName=ms-python.python
-Python Debugger : https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy
+
+Python Debugger : 
+https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy
 
 Python Environments : 
 https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs
