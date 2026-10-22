@@ -7,7 +7,6 @@ BOTTLEDWATER=90
 PAYMENT2 = 0 # Extra payment if needed
 PRICETOPAY=0 # Total Amount Needed
 CHANGE=0 # Change In Pence
-POUNDCHANGE=0 # Change In Pounds
 INVALIDPAYMENT="Inserted payment is not not accepted. Accepted payment options: 10p, 20p, 50p, £1. Please pay in pence."
 
 print()
@@ -53,15 +52,14 @@ AMOUNTNEEDED="0"
 if (PAYMENT == 10) or (PAYMENT == 20) or (PAYMENT == 50) or (PAYMENT == 100):
     VALIDPAYMENT = "true" 
 
-if VALIDPAYMENT == "true" and PAYMENT < PRICETOPAY:
+while VALIDPAYMENT == "true" and PAYMENT < PRICETOPAY:
     AMOUNTNEEDED = PRICETOPAY - PAYMENT
     print(f"Please insert more money, total amount needed is {AMOUNTNEEDED}p")
     PAYMENT2 = int(input("How much more did you insert? "))
-    if (PAYMENT2 != 10) or (PAYMENT2 != 20) or (PAYMENT2 != 50) or (PAYMENT2 != 100):
+    if PAYMENT2 not in [10 , 20, 50, 100]:
         print(f"{INVALIDPAYMENT}")
-        print("Please re-input your item selection and try again.")
         exit()
-    if (PAYMENT2 == 10) or (PAYMENT2 == 20) or (PAYMENT2 == 50) or (PAYMENT2 == 100):
+    if PAYMENT2 in [10 , 20, 50, 100]:
         PAYMENT = PAYMENT + PAYMENT2
 
 
@@ -72,4 +70,3 @@ if VALIDPAYMENT == "true" and PAYMENT >= PRICETOPAY:
     if CHANGE != "0":
         print(f"Dispensed {CHOICE}, your total change is {CHANGE}")
 
-# Payment method to be redone as cannot figure out working loop yet
