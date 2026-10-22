@@ -67,6 +67,6 @@ if VALIDPAYMENT == "true" and PAYMENT >= PRICETOPAY:
     CHANGE = PAYMENT - PRICETOPAY
     if CHANGE == "0":
         print(f"Dispensed {CHOICE}, no change.")
-    if CHANGE != "0":
-        print(f"Dispensed {CHOICE}, your total change is {CHANGE}")
+    else:
+        print(f"Dispensed {CHOICE}, your total change is {CHANGE}p")
 
